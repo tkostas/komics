@@ -15,6 +15,7 @@
 #'
 #' @examples
 #' new_data <- convert_to_df(x, value = 0, to = NA, exclusion = c(“Protein”, “pept”))
+#' @export
 
 
 
