@@ -1,5 +1,5 @@
 #' Calculate CV for one vector
-#' @decription Reads a vector and calculates the CV value
+#' @description Reads a vector and calculates the CV value
 #'
 #' @param x Numeric vector.
 #' @examples

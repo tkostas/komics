@@ -10,7 +10,7 @@ calc_CV_vec(x)
 \item{x}{Numeric vector.}
 }
 \description{
-Calculate CV for one vector
+Reads a vector and calculates the CV value
 }
 \examples{
 x <- seq(1:10)
