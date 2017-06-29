@@ -4,16 +4,16 @@
 #' and performs ANOVA to identify rows that show difference in at least one of the groups.
 #' P-values are adjusted for multiple hypothesis testing error, and the output is returned
 #' as a dataframe. If the number of observations is not enought for the ANOVA test, the entry
-#' is labeled as "excluded".
+#' is labeled as excluded.
 #'
 #' @param x A dataframe containing the protein/gene identifier. Each row is one protein/gene and
 #' each column is one samlple. Additional columns can be included in this dataframe. The samples
 #' will be matched based on the \code{sample_names} vector. However because samples are identified
-#' by partial matching (\code(grep) function) try to reduce the number of columns if you encounter an error.
+#' by partial matching (\code{grep} function) try to reduce the number of columns if you encounter an error.
 #' @param sample_names A vector containing the sample names.
 #' @param group_names A vector of equal length with the \code{sample_names} containing the group name
-#' for each sample. You can store in a separate dataframe the sample_names and the group_names and
-#' just reference to this table.
+#' for each sample. You can store in a separate dataframe the \code{sample_names} and the \code{group_names}
+#'  and just reference to this table.
 #' @param pAdj Method for adjustment of p-values. See more at \code{p.adjust}. Default method is "BH".
 #'
 #' @examples
@@ -22,7 +22,6 @@
 #'                            group_names = sample_groups$groups)
 #'
 #' @export
-#'
 
 calc_aov_padj <- function(x,                          # a dataframe with the quantitative values
                           sample_names,               # a vector with the sample names similar to the header of the x dataframe. you can use partial matching
