@@ -2,6 +2,7 @@
 
 export(above_threshold_df)
 export(above_threshold_vec)
+export(add_groups_col)
 export(append_cols_df)
 export(calc_CV_vec)
 export(calc_aov_padj)
