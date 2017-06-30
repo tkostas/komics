@@ -10,3 +10,5 @@ To use the package, type:
 ```
 library(komics)
 ```
+
+Documentation and examples can be found in the docs folder.
