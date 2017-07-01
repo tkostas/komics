@@ -36,7 +36,7 @@ kwd_enrichment <- function(kwd_col_test,
   ## temp functions
   split_keywords <- function(working_list){
     for (i in seq_along(working_list)) {
-      working_list[[i]] <- strsplit(working_list[[i]], split = kwd_sep)[[1]]
+      working_list[[i]] <- tryCatch(strsplit(working_list[[i]], split = kwd_sep)[[1]], error = function(e) NULL)
     }
     return(working_list)
   }
@@ -53,8 +53,8 @@ kwd_enrichment <- function(kwd_col_test,
 
   ## prepare data
   # for each input dataframe find keyword column and convert it to list
-  kwd_test <- as.list(kwd_col_test)
-  kwd_bg <- as.list(kwd_col_bg)
+  kwd_test <- as.list(as.character(kwd_col_test))
+  kwd_bg <- as.list(as.character(kwd_col_bg))
 
   # for each element of the list split keywords into vector
   print("Processing keywords from test group ...")
