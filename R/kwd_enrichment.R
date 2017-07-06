@@ -107,5 +107,6 @@ kwd_enrichment <- function(kwd_col_test,
   output[,paste0("Ftest_pval_adj_", padj_method)] <- p.adjust(output$Ftest_pval,
                                                               method = padj_method,
                                                               n = n_keywords)
+  print("Done!")
   return(output)
 }
