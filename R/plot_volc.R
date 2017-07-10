@@ -60,6 +60,7 @@
 #'                           plot_config = plot_config)
 #'
 #' write.csv(my_graph_data, file = “my_graph_data.csv”, row.names = FALSE)
+#' @export
 
 
 
