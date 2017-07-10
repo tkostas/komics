@@ -10,6 +10,7 @@
 #' groups <- list(mean_A = "group A",
 #'                mean_B = c("^B", “groupB”)
 #' data <- calc_means_df(x = input, groups = groups)
+#' @export
 
 
 calc_means_df <- function(x, groups) {
