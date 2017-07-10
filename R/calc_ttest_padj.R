@@ -6,7 +6,7 @@
 #' be omitted from the t-test. Minimum number of samples to be used in t-test can be defined by the user.
 #' Default value is 3 samples per group. Two tailed t-test is used without assuming equal variance.
 #' Equal variance can be selected by user using \code{t.test_var.equal} argument. P-values are
-#' adjusted using “Benjamini-Hochberg” method “BH”. To use a different method, change \code{pAdj_method}
+#' adjusted using "Benjamini-Hochberg" method "BH". To use a different method, change \code{pAdj_method}
 #' parameter (see \code{?p.adjust} for more info. Results are saved in your working directory and can
 #' be assigned to a variable for further processing.
 #'
@@ -24,7 +24,7 @@
 #' the output will be printed, so you can save it in a variable.
 #'
 #' @examples
-#' calc_ttest_padj(norm_data, id_groupA = “log2_disease”, id_groupB = “log2_controls”)
+#' calc_ttest_padj(norm_data, id_groupA = "log2_disease", id_groupB = "log2_controls")
 #' @export
 
 calc_ttest_padj <- function(x,
