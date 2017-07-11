@@ -5,6 +5,8 @@
 #' @param groups 	List containing column identifiers for the different groups. The name of each
 #' element will be used as column name containing the mean. Each element is a vector containing
 #' possible identifiers for the columns. Identifiers can match partially with the columns of interest.
+#' @param na.rm Logical with default value TRUE, indicating whether the NA values should be taken into account
+#' when calculating the means. See \code{\link{mean}} function.
 #'
 #' @examples
 #' groups <- list(mean_A = "group A",
@@ -13,12 +15,12 @@
 #' @export
 
 
-calc_means_df <- function(x, groups) {
+calc_means_df <- function(x, groups, na.rm = TRUE) {
   output <- x
   for (i in seq_along(groups)) {
     print(paste("Getting indexes for ", groups[i]))
     indx <- get_col_indexes_df(x = x, id = groups[[i]])
-    vec <- apply(x[,indx], 1, mean, na.rm = TRUE)
+    vec <- apply(x[,indx], 1, mean, na.rm = na.rm)
     output <- cbind(output, vec)
     vec_name <- paste(names(groups[i]))
     last_element <- length(colnames(output))

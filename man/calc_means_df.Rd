@@ -4,7 +4,7 @@
 \alias{calc_means_df}
 \title{Calculate means}
 \usage{
-calc_means_df(x, groups)
+calc_means_df(x, groups, na.rm = TRUE)
 }
 \arguments{
 \item{x}{Data frame with the input values.}
@@ -12,6 +12,9 @@ calc_means_df(x, groups)
 \item{groups}{List containing column identifiers for the different groups. The name of each
 element will be used as column name containing the mean. Each element is a vector containing
 possible identifiers for the columns. Identifiers can match partially with the columns of interest.}
+
+\item{na.rm}{Logical with default value TRUE, indicating whether the NA values should be taken into account
+when calculating the means. See \code{\link{mean}} function.}
 }
 \description{
 Calculate mean values for the specified columns of a dataframe. Output is appended
