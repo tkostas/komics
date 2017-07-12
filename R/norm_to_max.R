@@ -14,6 +14,8 @@
 #' @param sub_min Logical with default value \code{TRUE}. By default the calculation is
 #' \code{(x - x_min) / (x_max - x_min)}. If \code{sub_min} is set to \code{FALSE} the normalization will be
 #' performed as: \code{x / x_max}
+#' @param drop_input Select if you want to append the normalized data into the input dataframe or keep only them.
+#' Logical with default value \code{FALSE}, meaning that the processed values will be added to the input.
 #'
 #' @examples
 #' data <- data.frame(L1 = c("a", "b", "c", "d", "e", "f", "g", "h"),
@@ -29,7 +31,8 @@ norm_to_max <- function(x,
                         columns = "..all..",
                         label = "nmax_",
                         complete_match = FALSE,
-                        sub_min = TRUE){
+                        sub_min = TRUE,
+                        drop_input = FALSE){
   # find indexes and prepare working vector
   if (columns == "..all..") {
     print("All columns selected for normalization...")
@@ -74,6 +77,12 @@ norm_to_max <- function(x,
   print("Correcting names ... ")
   names(normalized_data) <- paste0(label, names(normalized_data))
   print("Merging tables ... ")
-  output <- cbind(x, normalized_data)
+  if (drop_input == "FALSE") {
+    output <- cbind(x, normalized_data)
+  } else {
+    output <- normalized_data
+  }
+  print("Done!")
+
   return(output)
 }
