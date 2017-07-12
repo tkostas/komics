@@ -14,6 +14,7 @@
 #' @param sub_min Logical with default value \code{TRUE}. By default the calculation is
 #' \code{(x - x_min) / (x_max - x_min)}. If \code{sub_min} is set to \code{FALSE} the normalization will be
 #' performed as: \code{x / x_max}
+#' @param na.rm Action for missing values when calculating min and max values. Defalut is \code{TRUE}
 #' @param drop_input Select if you want to append the normalized data into the input dataframe or keep only them.
 #' Logical with default value \code{FALSE}, meaning that the processed values will be added to the input.
 #'
@@ -32,6 +33,7 @@ norm_to_max <- function(x,
                         label = "nmax_",
                         complete_match = FALSE,
                         sub_min = TRUE,
+                        na.rm = TRUE,
                         drop_input = FALSE){
   # find indexes and prepare working vector
   if (columns == "..all..") {
@@ -55,10 +57,10 @@ norm_to_max <- function(x,
   # normalize
   # define helping functions
   norm_func_1 <- function(z) {
-    (z - min(z)) / (max(z) - min(z))
+    (z - min(z, na.rm = na.rm)) / (max(z, na.rm = na.rm) - min(z, na.rm = na.rm))
   }
   norm_func_2 <- function(z) {
-    z / max(z)
+    z / max(z, na.rm = na.rm)
   }
   # loop
   normalized_data <- working_data

@@ -5,7 +5,8 @@
 \title{Normalize rows to the maximum value}
 \usage{
 norm_to_max(x, columns = "..all..", label = "nmax_",
-  complete_match = FALSE, sub_min = TRUE, drop_input = FALSE)
+  complete_match = FALSE, sub_min = TRUE, na.rm = TRUE,
+  drop_input = FALSE)
 }
 \arguments{
 \item{x}{A dataframe with the values to be normalized.}
@@ -24,6 +25,8 @@ the input will be used.}
 \item{sub_min}{Logical with default value \code{TRUE}. By default the calculation is
 \code{(x - x_min) / (x_max - x_min)}. If \code{sub_min} is set to \code{FALSE} the normalization will be
 performed as: \code{x / x_max}}
+
+\item{na.rm}{Action for missing values when calculating min and max values. Defalut is \code{TRUE}}
 
 \item{drop_input}{Select if you want to append the normalized data into the input dataframe or keep only them.
 Logical with default value \code{FALSE}, meaning that the processed values will be added to the input.}
