@@ -4,18 +4,18 @@
 \alias{above_threshold_df}
 \title{Calculate number of observations above a certain threshold}
 \usage{
-above_threshold_df(data, apply_to = "columns", group_ids = NULL,
+above_threshold_df(x, apply_to = "columns", group_ids = NULL,
   threshold = 0)
 }
 \arguments{
-\item{data}{A dataframe. You can select which columns to be used using the group_ids argument.}
+\item{x}{A dataframe. You can select which columns to be used using the group_ids argument.}
 
-\item{apply_to}{Character vector. Calculate frequency for ‘columns’, or ‘rows’. Default value is ‘columns’.}
+\item{apply_to}{Character vector. Calculate frequency for "columns", or "rows". Default value is "columns".}
 
 \item{group_ids}{List of group names and group identifiers (see example). If all the columns are used as one group,
 skip this argument. To specific columns for one or more groups define a list in which the name of each list element
 will be the group name and every element will contain a character vector that matches with the column names of the specific group.
-Matching of the columns can be partial (e.g. ctrl_ to select multiple columns containing the 'ctrl_' character string)}
+Matching of the columns can be partial (e.g. ctrl_ to select multiple columns containing the "ctrl_" character string)}
 
 \item{threshold}{The minimum value to calculate frequency. Default is 0.}
 }
