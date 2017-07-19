@@ -75,7 +75,7 @@ calc_ttest_padj <- function(x,
       AvsB[i] <- "neither A or B"
     }
   }
-  data$AvsB <- AvsB
+  x$AvsB <- AvsB
 
   ## subset the data and use only proteins with f>= min A/B for t-test
   compareData <- subset(x, AvsB == "both in A and B")
