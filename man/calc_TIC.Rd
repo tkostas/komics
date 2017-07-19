@@ -14,12 +14,13 @@ Each row contains peptide intensities.}
 
 \item{protein_lab}{Column name of the column containing the protein identifiers.}
 
-\item{custom_lab}{Custom character string to be added in front of every column name. Default value it “TIC_”.}
+\item{custom_lab}{Custom character string to be added in front of every column name.
+Default value it "TIC_".}
 }
 \description{
 Reads a table containing a list of petides intensities and sums the peptide intensities
 for each protein. Column containing protein identifiers should be included in the dataset.
 }
 \examples{
-TIC <- calc_TIC(x, col_id = “normalized_int”, protein_lab = “Protein”)
+TIC <- calc_TIC(x, col_id = "normalized_int", protein_lab = "Protein")
 }

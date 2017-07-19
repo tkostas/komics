@@ -7,10 +7,12 @@
 #' Each row contains peptide intensities.
 #' @param col_id Character string used to identify the columns containing peptide intensity.
 #' @param protein_lab Column name of the column containing the protein identifiers.
-#' @param custom_lab Custom character string to be added in front of every column name. Default value it “TIC_”.
+#' @param custom_lab Custom character string to be added in front of every column name.
+#'  Default value it "TIC_".
 #'
 #' @examples
-#' TIC <- calc_TIC(x, col_id = “normalized_int”, protein_lab = “Protein”)
+#' TIC <- calc_TIC(x, col_id = "normalized_int", protein_lab = "Protein")
+#' @export
 
 calc_TIC <- function(x,
                      col_id,

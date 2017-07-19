@@ -51,7 +51,7 @@ calc_row_frequency <- function(x,
       column_indexes <- get_col_indexes_df(x, sample_vector[group_vector == unique_groups[i]])
     }
     working_data <- x[,column_indexes]
-    frequency_table[,i] <- apply(working_data, 1, above_threshold_vec, threshold)
+    frequency_table[,i] <- apply(working_data, 1, function(x, threshold = 0) sum(x > threshold, na.rm = TRUE))
   }
 
   # prepare export
