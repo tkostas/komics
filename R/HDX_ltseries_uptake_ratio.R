@@ -21,8 +21,6 @@
 #'
 #' @export
 
-i <- 1
-j <- 1
 HDX_ltseries_uptake_ratio <- function(x,
                                       protein_col,
                                       peptide_col = "Sequence",
