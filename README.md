@@ -12,3 +12,4 @@ library(komics)
 ```
 
 Documentation and examples can be found in the docs folder.
+More instructions will be added soon!
