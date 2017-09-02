@@ -22,8 +22,8 @@ calc_ttest_padj(x, id_groupA = "_groupA", id_groupB = "_groupB",
 \item{t.test_var.equal}{Assumption for equal variance in t-test. Default is \code{FALSE}.
 Set \code{TRUE} is you assume equal variance in the set.}
 
-\item{pAdj_method}{Method for multiple hypothesis testing of the p-values. Default is “Benjamini-Hochberg”
-method “BH”. Run \code{?p.adjust} for more info.}
+\item{pAdj_method}{Method for multiple hypothesis testing of the p-values. Default is "Benjamini-Hochberg"
+method "BH". Run \code{?p.adjust} for more info.}
 
 \item{output_name}{Name of the output file containing the results. This output will be saved in your
 working directory. For this set the desired working directory before running the function. Also
