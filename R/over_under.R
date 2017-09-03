@@ -46,7 +46,7 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
     stor("'threshold' argument should be a list. See help for more info.", call. = FALSE)
   }
 
-### define some helping functions
+  ### define some helping functions
   # read the test value from the dataframe and the value from the rule
   ### function will return true or false
   make_comparison <- function(test_value, value){
@@ -83,28 +83,37 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
   r <- 1
   new_column <- vector(mode = "character", length = nrow(x))
   for (r in 1:nrow(x)){
-        for (i in 1:length(thresholds)){ # starting with the first category
-            comparison <- TRUE
-            for (j in seq_along(thresholds[[i]])) { # check for every rule
-              column_name <- names(thresholds[[i]][j])
-              test_value <- x[r, column_name]
-              value <- thresholds[[i]][[j]]
-              comparison <- make_comparison(test_value, value)
-              # if the comparison fails, give j the max value and terminate the loop
-              if (comparison == FALSE) {
-                break
-              }
-              if (j == length(thresholds[[i]]) & comparison == TRUE) {
-                new_column[r] <- labels[[i]]
-              }
-            }
-            i <- i + 1
+    print(paste("!!!Checking row number:", r))
+    for (i in 1:length(thresholds)){ # starting with the first category
+      print(paste("> checking rule", i))
+      comparison <- TRUE
+      for (j in seq_along(thresholds[[i]])) { # check for every rule
+        column_name <- names(thresholds[[i]][j])
+        test_value <- x[r, column_name]
+        if (is.na(test_value)) {
+          break
+        } else {
+          value <- thresholds[[i]][[j]]
+          comparison <- make_comparison(test_value, value)
+          print(paste("test_value", test_value))
+          print(paste("value", value))
         }
+
+        # if the comparison fails, give j the max value and terminate the loop
+        if (comparison == FALSE) {
+          break
+        }
+        if (j == length(thresholds[[i]]) & comparison == TRUE) {
+          new_column[r] <- labels[[i]]
+        }
+      }
+      i <- i + 1
+    }
     r <- r + 1
   }
 
-output <- cbind(x, new_column)
-colnames(output)[ncol(output)] <- labels$colname
-print("Done!")
-return(output)
+  output <- cbind(x, new_column)
+  colnames(output)[ncol(output)] <- labels$colname
+  print("Done!")
+  return(output)
 }
