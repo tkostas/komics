@@ -43,7 +43,7 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
                                      colname = "Difference")) {
   # check that the thresholds list is correct
   if (class(thresholds) != "list"){
-    stor("'threshold' argument should be a list. See help for more info.", call. = FALSE)
+    stop("'threshold' argument should be a list. See help for more info.", call. = FALSE)
   }
 
   ### define some helping functions
@@ -85,7 +85,7 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
   for (r in 1:nrow(x)){
     print(paste("!!!Checking row number:", r))
     for (i in 1:length(thresholds)){ # starting with the first category
-      print(paste("> checking rule", i))
+      #print(paste("> checking rule", i))
       comparison <- TRUE
       for (j in seq_along(thresholds[[i]])) { # check for every rule
         column_name <- names(thresholds[[i]][j])
@@ -95,8 +95,8 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
         } else {
           value <- thresholds[[i]][[j]]
           comparison <- make_comparison(test_value, value)
-          print(paste("test_value", test_value))
-          print(paste("value", value))
+          #print(paste("test_value", test_value))
+          #print(paste("value", value))
         }
 
         # if the comparison fails, give j the max value and terminate the loop
