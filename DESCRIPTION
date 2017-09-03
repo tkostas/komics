@@ -4,11 +4,13 @@ Version: 0.0.1
 Authors@R: person("Kostas", "Tsolis", email = "kostas.tsolis@zoho.com", role = c("aut", "cre"))
 Description: Collection of functions for the analysis of omics datasets, with emphasis in proteomics.
 Depends: 
-    R (>= 3.0.1)
+    R (>= 3.0.1), 
+    ggplot2
 Imports:
     colorspace,
     DBI,
     gtable,
+    ggplot2,
     labeling,
     lazyeval,
     munsell,

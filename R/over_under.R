@@ -34,7 +34,6 @@
 
 
 
-
 over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
                                                         group = "B"),
                                             under = list(pval = "<0.4",
@@ -67,16 +66,16 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
     #### extract the rule
     if (first_element_type == "symbol") {
       if (first_element == ">") {
-        comparison <- test_value > number
+        test <- test_value > number
       } else if (first_element == "<") {
-        comparison <- test_value < number
+        test <- test_value < number
       } else {
-        comparison <- test_value == number
+        test <- test_value == number
       }
     } else {
-      comparison <- test_value == txt
+      test <- test_value == txt
     }
-    return(comparison)
+    return(test)
   }
 
 
@@ -84,18 +83,17 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
   r <- 1
   new_column <- vector(mode = "character", length = nrow(x))
   for (r in 1:nrow(x)){
-    print(paste("Checking row", r))
         for (i in 1:length(thresholds)){ # starting with the first category
             comparison <- TRUE
             for (j in seq_along(thresholds[[i]])) { # check for every rule
               column_name <- names(thresholds[[i]][j])
               test_value <- x[r, column_name]
-              print(paste("i is", i, "and j is", j))
               value <- thresholds[[i]][[j]]
               comparison <- make_comparison(test_value, value)
-              print(comparison)
               # if the comparison fails, give j the max value and terminate the loop
-              if (comparison == FALSE) break
+              if (comparison == FALSE) {
+                break
+              }
               if (j == length(thresholds[[i]]) & comparison == TRUE) {
                 new_column[r] <- labels[[i]]
               }
