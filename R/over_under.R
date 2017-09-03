@@ -83,7 +83,7 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
   r <- 1
   new_column <- vector(mode = "character", length = nrow(x))
   for (r in 1:nrow(x)){
-    print(paste("!!!Checking row number:", r))
+    # print(paste("!!!Checking row number:", r))
     for (i in 1:length(thresholds)){ # starting with the first category
       #print(paste("> checking rule", i))
       comparison <- TRUE
