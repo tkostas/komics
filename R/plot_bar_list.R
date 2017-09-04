@@ -32,6 +32,7 @@
 #'
 #' # plot frequencies per 'experiment'
 #' plot_bar_list(number_of_ids, "experiments")
+#' @export
 
 
 plot_bar_list <- function(x, compare = "groups", ylim = c(0, NA)) {
