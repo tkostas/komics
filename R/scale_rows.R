@@ -1,5 +1,6 @@
 #' Scale rows
-#' @decription Select the columns of interest and scale their rows. Scale function takes the default argument
+#'
+#' @description Select the columns of interest and scale their rows. Scale function takes the default argument
 #'       \code{center, scale} plus some additional, common with other function of the package. The output can
 #'       be either appended into the input dataframe or you can drop the input keeping only the scaled data.
 #' @param x A dataframe with the values to be normalized.

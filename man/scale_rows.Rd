@@ -29,7 +29,9 @@ the input will be used.}
 Logical with default value \code{FALSE}, meaning that the processed values will be added to the input.}
 }
 \description{
-Scale rows
+Select the columns of interest and scale their rows. Scale function takes the default argument
+      \code{center, scale} plus some additional, common with other function of the package. The output can
+      be either appended into the input dataframe or you can drop the input keeping only the scaled data.
 }
 \examples{
 df <- data.frame(text = c("A", "B", "C", "D", "E", "F", "G"),
