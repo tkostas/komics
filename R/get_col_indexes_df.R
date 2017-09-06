@@ -4,7 +4,8 @@
 #' If input is not a dataframe, returns an error. You can set the first argument as.data.frame(x).
 #'
 #' @param x A dataframe to with the columns of interest
-#' @param id Vector contaning character identifiers for the columns of interest.
+#' @param id Vector contaning character identifiers for the columns of interest. You can match
+#'         the column names partially (see example).
 #'
 #' @examples
 #' x <- data.frame(one = 1, two = 2, three = 3, four = 4)
@@ -18,7 +19,7 @@
 get_col_indexes_df <- function(x, id) {
   if (any(class(x) %in% c("data.frame", "tbl", "tbl_df"))) {
     indexes <- unique(grep(paste(id, collapse = "|"), colnames(x)))
-    print(paste(length(indexes), "columns matched"))
+    print(paste(length(indexes), "column(s) matched"))
     return(indexes)
   } else {
     stop("Input is not a dataframe. Set as.data.frame and run again.", call. = FALSE)

@@ -9,7 +9,8 @@ get_col_indexes_df(x, id)
 \arguments{
 \item{x}{A dataframe to with the columns of interest}
 
-\item{id}{Vector contaning character identifiers for the columns of interest.}
+\item{id}{Vector contaning character identifiers for the columns of interest. You can match
+the column names partially (see example).}
 }
 \description{
 Reads a dataframe and returns the column indexes that match to a specific pattern.
