@@ -9,12 +9,13 @@
 #' @param x A dataframe containing the protein/gene identifier. Each row is one protein/gene and
 #' each column is one samlple. Additional columns can be included in this dataframe. The samples
 #' will be matched based on the \code{sample_names} vector. However because samples are identified
-#' by partial matching (\code{grep} function) try to reduce the number of columns if you encounter an error.
-#' @param sample_names A vector containing the sample names.
+#' by partial matching (\code{\link{grep}} function) try to reduce the number of columns if you encounter an error.
+#' @param sample_names A vector containing the sample names. Names will be matched partially. For this
+#'       make sure the you don't have multiple columns that match.
 #' @param group_names A vector of equal length with the \code{sample_names} containing the group name
 #' for each sample. You can store in a separate dataframe the \code{sample_names} and the \code{group_names}
 #'  and just reference to this table.
-#' @param pAdj Method for adjustment of p-values. See more at \code{p.adjust}. Default method is "BH".
+#' @param pAdj Method for adjustment of p-values. See more at \code{\link{p.adjust}}. Default method is "BH".
 #'
 #' @examples
 #' proc_data <- calc_aov_padj(my_data,

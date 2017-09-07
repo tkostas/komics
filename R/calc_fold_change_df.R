@@ -7,12 +7,14 @@
 #' group A. Partial matching is acceptable.
 #' @param mean_B Character string describing the column name of the mean for the
 #' group B. Partial matching is acceptable.
+#' @param colname Single character vector, with the label of the column with the calculated values.
+#'         Default value is "log2_fold_difference".
 #'
 #' @examples
 #' proc_data <- calc_fold_change_df(data, "TIC_Pat", "TIC_Ctr")
 #' @export
 #'
-calc_fold_change_df <- function(x, mean_A, mean_B) {
+calc_fold_change_df <- function(x, mean_A, mean_B, colname = "log2_fold_difference") {
   print("---------------------")
   print(paste("Calculating fold change for group A", mean_A, "vs group B", mean_B))
   print("---------------------")
@@ -39,6 +41,7 @@ calc_fold_change_df <- function(x, mean_A, mean_B) {
   fold_change <- x[,indx_A]/x[,indx_B]
   log2_fold <- log(fold_change, base = 2)
   x$log2_fold_change_AB <- log2_fold
+  colnames(x)[names(x) == "log2_fold_change_AB"] <- colname
   print("Done!")
   return(x)
 }

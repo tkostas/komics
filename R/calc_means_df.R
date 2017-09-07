@@ -26,6 +26,6 @@ calc_means_df <- function(x, groups, na.rm = TRUE) {
     last_element <- length(colnames(output))
     colnames(output)[last_element] <- vec_name
   }
-  print("Done!")
+  print("Done! Mean values for each group were calculated.")
   return(output)
 }
