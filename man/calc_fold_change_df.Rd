@@ -4,7 +4,7 @@
 \alias{calc_fold_change_df}
 \title{Calculate fold change}
 \usage{
-calc_fold_change_df(x, mean_A, mean_B)
+calc_fold_change_df(x, mean_A, mean_B, colname = "log2_fold_difference")
 }
 \arguments{
 \item{x}{Data frame containing input values.}
@@ -14,6 +14,9 @@ group A. Partial matching is acceptable.}
 
 \item{mean_B}{Character string describing the column name of the mean for the
 group B. Partial matching is acceptable.}
+
+\item{colname}{Single character vector, with the label of the column with the calculated values.
+Default value is "log2_fold_difference".}
 }
 \description{
 Reads a data frame, identifies the columns containing group mean values, and

@@ -45,6 +45,7 @@ move_columns <- function(x, columns, position){
     stop("'position' argument (the 3rd argument) should be either numeric or 'start' or 'end'. \n
          Check the input the run again.", call. = FALSE)
   }
+  print("Done!")
   return(output)
 
 }
