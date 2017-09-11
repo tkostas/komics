@@ -42,6 +42,7 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
                                      under = "decreased",
                                      colname = "Difference")) {
   # check that the thresholds list is correct
+  print("Checking if arguments class...")
   if (class(thresholds) != "list"){
     stop("'threshold' argument should be a list. See help for more info.", call. = FALSE)
   }
@@ -50,6 +51,7 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
   # read the test value from the dataframe and the value from the rule
   ### function will return true or false
   make_comparison <- function(test_value, value){
+    print("Preparing comparison ...")
     ### is the first letter symbol?
     first_element <- substr(value, 1, 1)
     if (first_element %in% c(">", "<", "=")) {
@@ -83,9 +85,9 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
   r <- 1
   new_column <- vector(mode = "character", length = nrow(x))
   for (r in 1:nrow(x)){
-    # print(paste("!!!Checking row number:", r))
+    print(paste("Checking row number:", r))
     for (i in 1:length(thresholds)){ # starting with the first category
-      #print(paste("> checking rule", i))
+      print(paste("> Checking rule", i))
       comparison <- TRUE
       for (j in seq_along(thresholds[[i]])) { # check for every rule
         column_name <- names(thresholds[[i]][j])
@@ -111,7 +113,7 @@ over_under <- function(x, thresholds = list(over = list(pval = ">0.7",
     }
     r <- r + 1
   }
-
+  print("Preparing output ...")
   output <- cbind(x, new_column)
   colnames(output)[ncol(output)] <- labels$colname
   print("Done!")
