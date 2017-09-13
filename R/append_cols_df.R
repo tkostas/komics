@@ -31,7 +31,7 @@ append_cols_df <- function(x, y, key_x, key_y, append_y){
   indx_y <- get_single_col_index_df(y, key_y)
   by_y <- colnames(y)[indx_y]
   # find indexes for new columns
-  indx_app <- get_col_indexes_df(y, append_y)
+  indx_app <- get_col_indexes(y, append_y)
   if (length(indx_app) == 0) {
     stop("No columns for appending found in the 2nd table. Check character string and try again.", call. = FALSE)
   } else {

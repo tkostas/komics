@@ -13,7 +13,7 @@ move_columns(x, columns, position)
 }
 \description{
 Re-arrange a dataframe by moving columns. You can use partial match to
-             select the columns of interest (See \code{\link{get_col_indexes_df}}).
+             select the columns of interest (See \code{\link{get_col_indexes}}).
 }
 \examples{
 x <- data.frame(V1 = c("a", "b", "c"),

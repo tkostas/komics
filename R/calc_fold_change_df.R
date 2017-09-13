@@ -20,7 +20,7 @@ calc_fold_change_df <- function(x, mean_A, mean_B, colname = "log2_fold_differen
   print("---------------------")
   # getting indexes for means
   print("Identifing columns with mean values ...")
-  indx_A <- get_col_indexes_df(x, mean_A)
+  indx_A <- get_col_indexes(x, mean_A)
   if (length(indx_A) == 1) {
     print(paste0("Column '", colnames(x)[indx_A], "' matched for group A."))
   } else if (length(indx_A) == 0) {
@@ -28,7 +28,7 @@ calc_fold_change_df <- function(x, mean_A, mean_B, colname = "log2_fold_differen
   } else if (length(indx_A) > 1) {
     stop("More than one columns are assigned to group A. Make character string more specific and try again.", call. = FALSE)
   }
-  indx_B <- get_col_indexes_df(x, mean_B)
+  indx_B <- get_col_indexes(x, mean_B)
   if (length(indx_B) == 1) {
     print(paste0("Column '", colnames(x)[indx_B], "' matched for group B."))
   } else if (length(indx_B) == 0) {

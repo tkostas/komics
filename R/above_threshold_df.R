@@ -40,7 +40,7 @@ above_threshold_df <- function(x, apply_to = "columns", group_ids = NULL, thresh
     for (i in seq_along(group_ids)) {
       g_name <- names(group_ids)[i]
       g_name
-      g_indexes <- get_col_indexes_df(x = x, id = group_ids[[i]])
+      g_indexes <- get_col_indexes(x = x, id = group_ids[[i]])
       index_list[[paste(g_name)]] <- g_indexes
     }
   } else {
