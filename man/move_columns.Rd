@@ -10,6 +10,11 @@ move_columns(x, columns, position)
 \item{x}{A dataframe.}
 
 \item{columns}{A vector containing column names. You can use partial matching and regular expressions.}
+
+\item{position}{Either a text or a number. Accepted values include "start" to move the columns
+in the begining of the dataframe, dataframe, "end" to move to the end or a number
+to specify the position that the columns will move (move after this number).
+See examples.}
 }
 \description{
 Re-arrange a dataframe by moving columns. You can use partial match to

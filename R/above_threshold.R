@@ -23,13 +23,13 @@
 #' group_ids <- list(treatment = treatement_group,
 #'                   control = control_group)
 #'
-#' above_threshold_df(data, group_ids = group_ids, threshold = 0)
+#' above_threshold(data, group_ids = group_ids, threshold = 0)
 #' @export
 
 
 
 
-above_threshold_df <- function(x, apply_to = "columns", group_ids = NULL, threshold = 0){
+above_threshold <- function(x, apply_to = "columns", group_ids = NULL, threshold = 0){
   # identify subgroups and get indexes
   index_list <- list()
   if (is.null(group_ids)) {
