@@ -16,7 +16,7 @@
 #'
 #' @export
 
-get_col_indexes_df <- function(x, id) {
+get_col_indexes <- function(x, id) {
   if (any(class(x) %in% c("data.frame", "tbl", "tbl_df"))) {
     indexes <- unique(grep(paste(id, collapse = "|"), colnames(x)))
     print(paste(length(indexes), "column(s) matched"))
