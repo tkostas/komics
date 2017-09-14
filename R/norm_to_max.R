@@ -44,7 +44,7 @@ norm_to_max <- function(x,
     if (complete_match == TRUE) {
       column_indexes <- which(names(x) %in% columns)
     } else if (complete_match == FALSE) {
-      column_indexes <- get_col_indexes_df(x, columns)
+      column_indexes <- get_col_indexes(x, columns)
     }
     working_data <- x[,column_indexes]
     if (length(names(working_data)) < 2) {

@@ -48,7 +48,7 @@ calc_row_frequency <- function(x,
     if (complete_match == TRUE) {
       column_indexes <- which(names(x) %in% sample_vector[group_vector == unique_groups[i]])
     } else if (complete_match == FALSE) {
-      column_indexes <- get_col_indexes_df(x, sample_vector[group_vector == unique_groups[i]])
+      column_indexes <- get_col_indexes(x, sample_vector[group_vector == unique_groups[i]])
     }
     working_data <- x[,column_indexes]
     frequency_table[,i] <- apply(working_data, 1, function(x, threshold = 0) sum(x > threshold, na.rm = TRUE))

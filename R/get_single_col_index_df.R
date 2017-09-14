@@ -1,7 +1,7 @@
 get_single_col_index_df <- function(x, char) {
   # getting indexes for means
   print("Identifing columns with mean values ...")
-  indx <- get_col_indexes_df(x, char)
+  indx <- get_col_indexes(x, char)
   if (length(indx) == 1) {
     print(paste0("Column '", colnames(x)[indx], "' matched."))
   } else if (length(indx) == 0) {

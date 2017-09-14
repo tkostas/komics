@@ -24,9 +24,9 @@ calc_kruskal_test <- function(x, groupA, groupB,
   }
   if (complete_match == FALSE) {
     print("Searching for samples of group A...")
-    samples_A <- get_col_indexes_df(x, group_list[[1]])
+    samples_A <- get_col_indexes(x, group_list[[1]])
     print("Searching for samples of group B...")
-    samples_B <- get_col_indexes_df(x, group_list[[2]])
+    samples_B <- get_col_indexes(x, group_list[[2]])
     sample_indexes <- c(samples_A, samples_B)
     groups_vector <- c(rep("groupA", times = length(samples_A)), rep("groupB", times = length(samples_B)))
   } else {

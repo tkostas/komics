@@ -1,12 +1,13 @@
 #' Move columns in a dataframe
 #'
 #' @description Re-arrange a dataframe by moving columns. You can use partial match to
-#'              select the columns of interest (See \code{\link{get_col_indexes_df}}).
+#'              select the columns of interest (See \code{\link{get_col_indexes}}).
 #' @param x A dataframe.
 #' @param columns A vector containing column names. You can use partial matching and regular expressions.
-#' @position Either a text or a number. Accepted values include "start" to move the columns in the
-#'         begining of the dataframe, "end" to move to the end, or a number to specify the position,
-#'         that the columns will move (move after this number). See examples.
+#' @param position Either a text or a number. Accepted values include "start" to move the columns
+#'          in the begining of the dataframe, dataframe, "end" to move to the end or a number
+#'          to specify the position that the columns will move (move after this number).
+#'          See examples.
 #'
 #' @examples
 #' x <- data.frame(V1 = c("a", "b", "c"),
@@ -20,7 +21,7 @@
 #' @export
 
 move_columns <- function(x, columns, position){
-  indexes <- get_col_indexes_df(x, columns)
+  indexes <- get_col_indexes(x, columns)
   if (length(indexes) == 0){
     stop("No columns matched. Check the second argument and repeat.", call. = FALSE)
   }

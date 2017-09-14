@@ -19,7 +19,7 @@ calc_means_df <- function(x, groups, na.rm = TRUE) {
   output <- x
   for (i in seq_along(groups)) {
     print(paste("Getting indexes for ", groups[i]))
-    indx <- get_col_indexes_df(x = x, id = groups[[i]])
+    indx <- get_col_indexes(x = x, id = groups[[i]])
     vec <- apply(x[,indx], 1, mean, na.rm = na.rm)
     output <- cbind(output, vec)
     vec_name <- paste(names(groups[i]))

@@ -25,7 +25,7 @@ exclude_cols <- function(x, exclusion = c(), complete_match = TRUE) {
         excl_indx <- c(excl_indx, indx)
       }
     } else {
-      excl_indx <- get_col_indexes_df(x, exclusion)
+      excl_indx <- get_col_indexes(x, exclusion)
     }
     un_indx <- unique(excl_indx)
     print(paste(length(un_indx), "columns found in exclusion list ..."))

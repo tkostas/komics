@@ -16,7 +16,7 @@
 
 
 drop_columns <- function(x, columns) {
-  column_indexes <- komics::get_col_indexes_df(x, columns)
+  column_indexes <- komics::get_col_indexes(x, columns)
   x[,column_indexes] <- NULL
   print(paste("Ok,", length(column_indexes), "columns were removed."))
   return(x)

@@ -47,6 +47,7 @@ above_threshold <- function(x, apply_to = "columns", group_ids = NULL, threshold
     stop("'groups_ids' argument should be either empty or a list with names for each element.
          Correct and repeat.", call. = FALSE)
   }
+
   # check if data are numeric
   for (i in seq_along(index_list)) {
     print(paste("Checking group", i))

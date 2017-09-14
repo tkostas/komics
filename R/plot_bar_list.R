@@ -1,6 +1,6 @@
-#' Plot frequencies in a barplot (use in combination with above_threshold_df)
+#' Plot frequencies in a barplot (use in combination with above_threshold)
 #'
-#' @description Reads a list of frequencies calculated for different groups (see above_threshold_df)
+#' @description Reads a list of frequencies calculated for different groups (see above_threshold)
 #' and makes a barplot for the mean between groups or for the individual measurements. Use to plot
 #' number of identified peptides/proteins per group or per sample.
 #'
@@ -9,21 +9,21 @@
 #' @param x Input list. Each element of the list has a title that will be used to define the group
 #' and to order the bars in the bar-graph. Every element of this list is a vector containing numeric
 #' values (e.g. number of proteins per experiment). The names of this vector are the experiments.
-#' Use as input the output of the above_threshold_df function.
+#' Use as input the output of the above_threshold function.
 #' @param compare Character vector that can be "groups" or "experiments", either to summarize
 #' values for groups or show the values for individual experiments. If "groups" are selected,
 #' the mean value +- SEM is plotted.
 #' @param ylim Numeric vector, defining min and max value for the y axis.
 #'
 #' @examples
-#' # first calculate the frequencies using the above_threshold_df function
+#' # first calculate the frequencies using the above_threshold function
 #' place the group names in the correct order before calculating frequencies
 #' Bmp4 <- "Bmp4"
 #' Ctrl <- "Ctrl"
 #' group_ids <- list(Bmp4 = Bmp4,
 #'                   Ctrl = Ctrl)
 #'
-#' number_of_ids <- above_threshold_df(data, group_ids = group_ids, threshold = 0)
+#' number_of_ids <- above_threshold(data, group_ids = group_ids, threshold = 0)
 #'
 #' # use the list with frequencies as input to make the barplots
 #'
