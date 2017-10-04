@@ -46,5 +46,6 @@ append_cols_df <- function(x, y, key_x, key_y, append_y){
   print("Done!")
   print(paste("Initial table contained", before_n, "rows and ", before_p, "columns." ))
   print(paste("Output contains", after_n, "rows and ", after_p, "columns." ))
+  print(paste(after_p - before_p, "columns added."))
   return(output)
 }
