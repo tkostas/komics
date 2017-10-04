@@ -26,7 +26,7 @@ the column name of the new column that will be added. See example for more info.
 }
 \description{
 Reads a dataframe 'x' and based on the rules described in the 'thresholds' list
-  will create a new column, and add the corresponding label. Keep the same order in the thresholds
+  will create a new column and add the corresponding label. Keep the same order in the thresholds
   and labels list.
 }
 \examples{

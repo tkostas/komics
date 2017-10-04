@@ -1,6 +1,6 @@
 #' Label each row based on specific rules
 #' @description Reads a dataframe 'x' and based on the rules described in the 'thresholds' list
-#'   will create a new column, and add the corresponding label. Keep the same order in the thresholds
+#'   will create a new column and add the corresponding label. Keep the same order in the thresholds
 #'   and labels list.
 #'
 #' @param x A data.frame containing the values to be tested.
