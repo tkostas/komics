@@ -13,8 +13,8 @@ over_under(x, thresholds = list(over = list(pval = ">0.7", group = "B"), under
 
 \item{thresholds}{A list of lists (see examples). The 1st level of elements in this list describes
 the category of labeling. The 2nd level, contains the rules that need to be TRUE.
-The names of the 2nd level lists should match with the columns that will be used for
-the comparison (see example). The values in the 2nd level list can be either text
+The \strong{names of the 2nd level lists should match with the columns that will be used for
+the comparison} (see example). The values in the 2nd level list can be either text
 or can contain a symbol for comparison and a number (e.g. "> 0.5"). Symbols recognized,
 include '>', '<' and '='.}
 
@@ -33,14 +33,14 @@ Reads a dataframe 'x' and based on the rules described in the 'thresholds' list
 x <- data.frame(pval = seq(from = 0.1, to = 1, by = 0.1),
                 group = c(rep("A", times = 5), rep("B", times = 5)))
 
-thresholds = list(over = list(pval = ">0.7",
-                              group = "B"),
-                  under = list(pval = "<0.4",
-                               group = "A"))
+rules_list <- list(over = list(pval = ">0.7",
+                               group = "B"),
+                   under = list(pval = "<0.4",
+                                group = "A"))
 
-labels = list(over = "increased",
-              under = "decreased",
-              colname = "Difference")
+labels_list <- list(over = "increased",
+                    under = "decreased",
+                    colname = "Difference")
 
-over_under(x)
+over_under(x, thresholds = rules_list, labels = labels_list)
 }
