@@ -1,5 +1,5 @@
 #' Perform t-test and adjust p-values
-#' @description Reads a dataframe, recognises protein groups, frequencies within each group,
+#' @description Reads a dataframe, recognizes protein groups, frequencies within each group,
 #' performes t-test, calculates p-values, and adjusts p-value for multiple hypothesis testing error.
 #' The starting dataframe can also contain columns with text. Experimental groups are identified based
 #' on specific character string for each group. If missing values are converted to \code{NA}, they will
