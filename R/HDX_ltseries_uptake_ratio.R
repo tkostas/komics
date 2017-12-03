@@ -1,6 +1,6 @@
 #' Calculate deuterioum uptake ration between the multiple time points over the last.
 #'
-#' @description Calculate deuterioum uptake ration between the multiple time points over the last,
+#' @description Calculate deuterioum uptake ratio between multiple time points over the last one,
 #' by dividing the uptake value from each timepoint with the last time point of the series.
 #' This division will be performed for each peptide of each protein.
 #'

@@ -19,7 +19,7 @@ HDX_ltseries_uptake_ratio(x, protein_col, peptide_col = "Sequence",
 \item{time_col}{Name of the column containing the timepoint of the measurement.}
 }
 \description{
-Calculate deuterioum uptake ration between the multiple time points over the last,
+Calculate deuterioum uptake ratio between multiple time points over the last one,
 by dividing the uptake value from each timepoint with the last time point of the series.
 This division will be performed for each peptide of each protein.
 }
