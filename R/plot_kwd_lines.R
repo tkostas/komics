@@ -8,6 +8,8 @@
 #'        function. You remove elements of this list, as long as you don't change the column names.
 #' @param group_vec A vector containing the labels of each group. Should have the same length
 #'        with the \code{x} argument.
+#' @param save_output Defalut value is FALSE. If a character string is added, the output will be saved
+#'        in your working directory with the specified name, as tab delimited file.
 #'
 #' @examples
 #' \donttest{
@@ -18,7 +20,7 @@
 #' @export
 
 
-plot_kwd_lines <- function(x, group_vec){
+plot_kwd_lines <- function(x, group_vec, save_output = FALSE){
   for (i in seq_along(group_vec)){
     print(paste("round:", i))
     kwd_table <- x[[i]][,c("keyword", "ratio_test_group")]
@@ -28,6 +30,10 @@ plot_kwd_lines <- function(x, group_vec){
     } else {
       output <- rbind(output, kwd_table)
     }
+  }
+  if (is.character(save_output)){
+    print(paste0("Saving output in the working directory as '", save_output, ".txt'."))
+    write.table(output, file = paste0(save_output, ".txt"), row.names = FALSE, sep = "\t")
   }
   ggplot(output, aes(keyword, ratio_test_group, col = group, group = group)) +
     geom_line(size = 2) +

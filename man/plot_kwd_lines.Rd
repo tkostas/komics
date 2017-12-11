@@ -4,7 +4,7 @@
 \alias{plot_kwd_lines}
 \title{Plot keywords after enrichment test as lines}
 \usage{
-plot_kwd_lines(x, group_vec)
+plot_kwd_lines(x, group_vec, save_output = FALSE)
 }
 \arguments{
 \item{x}{A list containing the keyword enrichment output from \code{link[komics]{kwd_enrichment_multi}}
@@ -12,6 +12,9 @@ function. You remove elements of this list, as long as you don't change the colu
 
 \item{group_vec}{A vector containing the labels of each group. Should have the same length
 with the \code{x} argument.}
+
+\item{save_output}{Defalut value is FALSE. If a character string is added, the output will be saved
+in your working directory with the specified name, as tab delimited file.}
 }
 \description{
 Reads the output of \code{link[komics]{kwd_enrichment_multi}}, along with
