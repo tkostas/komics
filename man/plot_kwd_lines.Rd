@@ -4,7 +4,7 @@
 \alias{plot_kwd_lines}
 \title{Plot keywords after enrichment test as lines}
 \usage{
-plot_kwd_lines(x, group_vec, save_output = FALSE)
+plot_kwd_lines(x, group_vec, save_output = FALSE, x_discrete = FALSE)
 }
 \arguments{
 \item{x}{A list containing the keyword enrichment output from \code{link[komics]{kwd_enrichment_multi}}
@@ -15,6 +15,9 @@ with the \code{x} argument.}
 
 \item{save_output}{Defalut value is FALSE. If a character string is added, the output will be saved
 in your working directory with the specified name, as tab delimited file.}
+
+\item{x_discrete}{Default valus is FALSE. Use the \code{kwd_vector } from \code{\link[komics]{kwd_enrichment_multi}}
+to order the \code{x} axis, accordingly.}
 }
 \description{
 Reads the output of \code{link[komics]{kwd_enrichment_multi}}, along with

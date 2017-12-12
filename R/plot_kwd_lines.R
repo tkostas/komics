@@ -10,6 +10,8 @@
 #'        with the \code{x} argument.
 #' @param save_output Defalut value is FALSE. If a character string is added, the output will be saved
 #'        in your working directory with the specified name, as tab delimited file.
+#' @param x_discrete Default valus is FALSE. Use the \code{kwd_vector } from \code{\link[komics]{kwd_enrichment_multi}}
+#'        to order the \code{x} axis, accordingly.
 #'
 #' @examples
 #' \donttest{
@@ -20,10 +22,12 @@
 #' @export
 
 
-plot_kwd_lines <- function(x, group_vec, save_output = FALSE){
+plot_kwd_lines <- function(x,
+                           group_vec,
+                           save_output = FALSE,
+                           x_discrete = FALSE){
   for (i in seq_along(group_vec)){
-    print(paste("round:", i))
-    kwd_table <- x[[i]][,c("keyword", "ratio_test_group")]
+    kwd_table <- x[[i]]
     kwd_table$group <- group_vec[i]
     if (i == 1) {
       output <- kwd_table
@@ -35,9 +39,14 @@ plot_kwd_lines <- function(x, group_vec, save_output = FALSE){
     print(paste0("Saving output in the working directory as '", save_output, ".txt'."))
     write.table(output, file = paste0(save_output, ".txt"), row.names = FALSE, sep = "\t")
   }
-  ggplot(output, aes(keyword, ratio_test_group, col = group, group = group)) +
+  p <- ggplot(output, aes(keyword, ratio_test_group, col = group, group = group)) +
     geom_line(size = 2) +
     theme_bw() +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+    if (x_discrete != FALSE) {
+      p + scale_x_discrete(limits = x_discrete)
+    } else {
+      p
+    }
 }
