@@ -4,7 +4,7 @@
 \alias{extract_entries}
 \title{Extract the entries of a dataframe that match specific rules}
 \usage{
-extract_entries(x, lookup_col, rules_list)
+extract_entries(x, lookup_col, rules_list, return_summary = FALSE)
 }
 \arguments{
 \item{x}{A dataframe containing all the values to be examined.}
@@ -20,6 +20,9 @@ evaluation. The rule can take values ">=", ">", "=", "<", "<=", "in", "not in".
 The value element of the list is the value that will be compared. It can be a single
 element vector or a vector with multiple elements. Depending on the comparison it can
 be numeric or character vector. See example.}
+
+\item{return_summary}{Default value is FALSE. If set to TRUE the output will be a dataframe with
+the number of elements that match the comparison.}
 }
 \description{
 Read a dataframe and extract from the specified column and entrie that match

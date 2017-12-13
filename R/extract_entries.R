@@ -13,6 +13,8 @@
 #'          The value element of the list is the value that will be compared. It can be a single
 #'          element vector or a vector with multiple elements. Depending on the comparison it can
 #'          be numeric or character vector. See example.
+#' @param return_summary Default value is FALSE. If set to TRUE the output will be a dataframe with
+#'          the number of elements that match the comparison.
 #'
 #'
 #' @examples
@@ -46,7 +48,8 @@
 
 extract_entries <- function(x,
                             lookup_col,
-                            rules_list) {
+                            rules_list,
+                            return_summary = FALSE) {
   print("Read the example in the description. I assume that the input is correct.")
   # check x is correct
   #   to be added
@@ -57,7 +60,6 @@ extract_entries <- function(x,
 
   output_list <- list()
   for (i in seq_along(rules_list)) {
-    print(i)
     temp_list <- list(info = c(),
                       ids = c())
     temp_list[["info"]] <- rules_list[[i]][["info"]]
@@ -86,11 +88,22 @@ extract_entries <- function(x,
     } else {
       stop(paste("Error in comparison number: ", i, ". The comparison rule is not in the correct input.", .call = FALSE))
     }
-    print(paste(indexes))
     ids <-x[indexes, lookup_col]
-    print(ids)
     temp_list[["ids"]] <- as.character(ids)
     output_list[[i]] <- temp_list
+  }
+
+  if (return_summary == TRUE) {
+    summary_df[i, 1] <- matched_ids_list[[i]][[1]]
+    list_length <- length(matched_ids_list)
+    summary_df <- data.frame(info = vector(length = list_length),
+                             number_of_ids = vector(length = list_length))
+    for (i in seq_along(matched_ids_list)) {
+      summary_df[i, 1] <- matched_ids_list[[i]][[1]]
+      summary_df[i, 2] <- length(matched_ids_list[[i]][[2]])
+    }
+    print("Done. Returning summary as a dataframe.")
+    return(summary_df)
   }
   print("Done. Output is a list.")
   return(output_list)
