@@ -50,7 +50,7 @@ extract_entries <- function(x,
                             lookup_col,
                             rules_list,
                             return_summary = FALSE) {
-  print("Read the example in the description. I assume that the input is correct.")
+  # print("Read the example in the description. I assume that the input is correct.")
   # check x is correct
   #   to be added
   # check that lookup_col is matched
@@ -92,16 +92,21 @@ extract_entries <- function(x,
     temp_list[["ids"]] <- as.character(ids)
     output_list[[i]] <- temp_list
   }
-
+    # if you select to export the summary
   if (return_summary == TRUE) {
-    summary_df[i, 1] <- output_list[[i]][[1]]
+    # calculate the length of the list to make a dataframe
     list_length <- length(output_list)
+    # make an empty dataframe to store the summary
     summary_df <- data.frame(info = vector(length = list_length),
                              number_of_ids = vector(length = list_length))
-    for (i in seq_along(output_list)) {
-      summary_df[i, 1] <- output_list[[i]][[1]]
-      summary_df[i, 2] <- length(output_list[[i]][[2]])
+    # for every element of the list
+    for (j in seq_along(output_list)) {
+      # add the information about the comparison in the first column
+      summary_df[j, 1] <- output_list[[j]][[1]]
+      # add the number of elements in the second column
+      summary_df[j, 2] <- length(output_list[[j]][[2]])
     }
+    # inform user and return summary
     print("Done. Returning summary as a dataframe.")
     return(summary_df)
   }
