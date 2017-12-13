@@ -94,13 +94,13 @@ extract_entries <- function(x,
   }
 
   if (return_summary == TRUE) {
-    summary_df[i, 1] <- matched_ids_list[[i]][[1]]
-    list_length <- length(matched_ids_list)
+    summary_df[i, 1] <- output_list[[i]][[1]]
+    list_length <- length(output_list)
     summary_df <- data.frame(info = vector(length = list_length),
                              number_of_ids = vector(length = list_length))
-    for (i in seq_along(matched_ids_list)) {
-      summary_df[i, 1] <- matched_ids_list[[i]][[1]]
-      summary_df[i, 2] <- length(matched_ids_list[[i]][[2]])
+    for (i in seq_along(output_list)) {
+      summary_df[i, 1] <- output_list[[i]][[1]]
+      summary_df[i, 2] <- length(output_list[[i]][[2]])
     }
     print("Done. Returning summary as a dataframe.")
     return(summary_df)
