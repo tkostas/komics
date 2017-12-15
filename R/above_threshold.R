@@ -56,13 +56,13 @@ above_threshold <- function(x, apply_to = "columns", group_ids = NULL, threshold
   # calculate above_threshold_vec
   frequency_list <- list()
   if (apply_to == "columns") {
-    print("Calculating frequency for columns with value greater than ", threshold)
+    print(paste("Calculating frequency for columns with value greater than ", threshold))
     for (i in seq_along(index_list)) {
       new_entry_name <- names(index_list[i])
       frequency_list[[new_entry_name]] <- apply(x[, index_list[[i]]], 2, above_threshold_vec, y = threshold)
     }
   } else if (apply_to == "rows") {
-    print("Calculating frequency for rows ...")
+    print(paste("Calculating frequency for rows with value greater than ", threshold))
     for (i in seq_along(index_list)) {
       new_entry_name <- names(index_list[i])
       frequency_list[[new_entry_name]] <- apply(x[, index_list[[i]]], 1, above_threshold_vec)
