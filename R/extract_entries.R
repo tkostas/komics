@@ -104,7 +104,7 @@ extract_entries <- function(x,
       # add the information about the comparison in the first column
       summary_df[j, 1] <- output_list[[j]][[1]]
       # add the number of elements in the second column
-      summary_df[j, 2] <- length(output_list[[j]][[2]])
+      summary_df[j, 2] <- sum(!is.na(output_list[[j]][[2]]))
     }
     # inform user and return summary
     print("Done. Returning summary as a dataframe.")
