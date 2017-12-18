@@ -65,7 +65,7 @@ above_threshold <- function(x, apply_to = "columns", group_ids = NULL, threshold
     print(paste("Calculating frequency for rows with value greater than ", threshold))
     for (i in seq_along(index_list)) {
       new_entry_name <- names(index_list[i])
-      frequency_list[[new_entry_name]] <- apply(x[, index_list[[i]]], 1, above_threshold_vec)
+      frequency_list[[new_entry_name]] <- apply(x[, index_list[[i]]], 1, above_threshold_vec, y = threshold)
     }
   } else {
     stop("apply_to attribute should be either 'columns' or 'rows'.", call. = FALSE)
