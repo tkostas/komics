@@ -1,0 +1,33 @@
+---
+title: "Calculate differential abundance across multiple groups"
+output: pdf_document
+---
+
+- Identify groups
+- Perform ANOVA test and extract p-values
+- Correct p-values for multiple hypothesis testing error
+
+```{r setup, eval = FALSE}
+# e.g. define a vector with the sample names. You can extract it directly using names(my_data)
+sample_names <- c("A01", "A02", "A03",
+                  "B01", "B02", "B03", 
+                  "C01", "C02", "C03")
+
+
+# Define a second vector with the group names, keeping the same order with above
+group_names <- c("A", "A", "A",
+                 "B", "B", "B", 
+                 "C", "C", "C")
+
+# Merge both vectors in one dataframe in case that you need to exclude groups etc
+sample_groups <- data.frame(samples = sample_names, groups = group_names)
+
+
+# Calculate pvalues. No-pairwise comparison is performed. If there is sigificant difference
+# it is across the complete set.
+processed_data <- calc_aov_padj(x = my_data, 
+                                sample_names = sample_groups$samples, 
+                                group_names = sample_groups$groups,
+                                pAdj = "BH") # see ?p.adjust for more options
+```
+

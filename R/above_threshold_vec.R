@@ -14,7 +14,7 @@
 
 
 above_threshold_vec <- function(x, y = 0) {
-  l <- sum(x[x > y], na.rm = TRUE)
+  l <- length(x[x > y])
   print(l)
   return(as.numeric(l))
 }

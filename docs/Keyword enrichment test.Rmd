@@ -1,0 +1,27 @@
+---
+title: "Keyword enrichment test"
+output: pdf_document
+---
+You have assigned keywords for each protein in you dataset in one column. The multiple keywords are separated by and identifier (e.g. "; "). After testing your dataset for differential abundance, you plan to identify enriched keywords. Use the `kwd_enrichment()` function to test if a specific term of your interest is over-represended in the enriched sub-proteome over the background proteins (complete proteome). see example
+
+
+```{r, eval = FALSE}
+# you can have the keywords in the same dataframe with your ids. 
+# e.g. from a central annotation file you can used the append_cols_df function to add 
+#      annotation in your working dataframe
+# crete two vectors with the keywords for the significant ids and the background
+kwd_col_test <- NS_secreted$Keyword
+kwd_col_bg <- bg_secreted$Keyword
+
+# crete a vector with the keywords that you aim to test
+my_keywords <- c("proteolysis", "transport", "immune system")
+
+# define the separator if multiple keywords are used for each entry
+kwd_sep <- "; "
+
+kwd_enrichment(kwd_col_test = significant_ids$keywords,
+               kwd_col_bg = background_set$keywords,
+               kwd_vector = my_keywords, 
+               padj_method = "bonferonni")
+
+```

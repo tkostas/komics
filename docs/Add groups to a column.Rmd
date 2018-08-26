@@ -1,0 +1,31 @@
+---
+title: "Add groups in a column"
+output: pdf_document
+---
+
+
+You have you dataset in a long format (measurements and samples are in a column) and you want to add column names for each sample based on a reference table containing samples and groups information. 
+
+```{r, eval = FALSE}
+# e.g. define a vector with the sample names. You can extract it directly using names(my_data)
+sample_names <- c("A01", "A02", "A03",
+                  "B01", "B02", "B03", 
+                  "C01", "C02", "C03")
+
+
+# Define a second vector with the group names, keeping the same order with above
+group_names <- c("A", "A", "A",
+                 "B", "B", "B", 
+                 "C", "C", "C")
+
+# Merge both vectors in one dataframe
+groups_df <- data.frame(samples = sample_names, groups = group_names)
+
+
+# add groups and save the output in a new dataframe
+grouped_data <- add_groups_col(x = my_data_long, 
+                               samples_vector = groups_df$samples, 
+                               groups_vector = groups_df$groups, 
+                               samples_column = "Samples_column", 
+                               column_name = "Groups_column_name")
+```

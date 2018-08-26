@@ -1,0 +1,16 @@
+---
+title: "Merge two tables"
+output: pdf_document
+---
+
+In cases where you need to add additional columns to your working dataframe (e.g. annotation columns), you can use the `append_cols_df()` function. Type `?append_cols_df()` to see more info about the functions arguments. 
+
+```{r, eval = FALSE}
+# e.g. 
+d4 <- append_cols_df(x = d3,
+                     y = annotation_df,
+                     key_x = "gene_id",
+                     key_y = "Gene ID ", 
+                     append_y = names(annotation_df[2:length(annotation_df)]))
+
+```
